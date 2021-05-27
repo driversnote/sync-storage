@@ -29,7 +29,8 @@ class SyncStorage {
     if (!key) return handleError('set', 'a key');
 
     this.data.set(key, value);
-    return AsyncStorage.setItem(key, JSON.stringify(value));
+    // return AsyncStorage.setItem(key, JSON.stringify(value));
+    return AsyncStorage.setItem(key, value);
   }
 
   remove(key: KeyType): Promise<*> {
@@ -43,7 +44,8 @@ class SyncStorage {
     let value;
 
     try {
-      value = JSON.parse(item[1]);
+      // value = JSON.parse(item[1]);
+      value = item[1];
     } catch (e) {
       [, value] = item;
     }
